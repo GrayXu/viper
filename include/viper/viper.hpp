@@ -11,6 +11,7 @@
 #include <sys/mman.h>
 #include <atomic>
 #include <assert.h>
+// #include <experimental/filesystem>
 #include <filesystem>
 #include <immintrin.h>
 
@@ -21,6 +22,14 @@
 #define DEBUG_LOG(msg) (std::cout << msg << std::endl)
 #else
 #define DEBUG_LOG(msg) do {} while(0)
+#endif
+
+#ifndef MAP_SYNC
+#define MAP_SYNC 0x80000
+#endif
+
+#ifndef MAP_SHARED_VALIDATE
+#define MAP_SHARED_VALIDATE 0x03
 #endif
 
 /**
